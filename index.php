@@ -7,11 +7,22 @@
 		die("Ошибка подключения к БД");
 	}
 
+	$inputErrors = array();
+	
+	// Delete movie
+		if (@$_GET['action'] == 'delete') {
+			$query = "DELETE FROM films WHERE id = '" . mysqli_real_escape_string($link, $_GET['id'])."' LIMIT 1";
+
+			mysqli_query($link, $query);
+
+			if(mysqli_affected_rows($link)>0) {
+				$addSuccess = '<div class="info">Фильм успешно удален.</div>';
+			}
+
+		}
+
 	// SAVE FORM TO DB
 	
-	$addSuccess = "";
-	$addError = "";
-	$inputErrors = array();
 
 	if (array_key_exists('add-film', $_POST)) {
 		// Errors check
@@ -36,7 +47,7 @@
 			'". mysqli_real_escape_string($link, $_POST['year']) . "'
 			)";
 			if (mysqli_query($link, $query)) {
-				$addSuccess = '<div class="info">Фильм успешно добавлен.</div>';
+				$addSuccess = '<div class="success">Фильм успешно добавлен.</div>';
 			} else {
 				$addError = '<div class="error">Ошибка добавления фильма.</div>';
 			}
@@ -90,7 +101,13 @@
       ?>
       
       <div class="card mb-20">
-        <h4 class="title-4"><?=$value['title']?></h4>
+        <div class="card__header">
+        	<h4 class="title-4"><?=$value['title']?></h4>
+        	<div class="buttons">
+        		<a href="edit.php?id=<?=$value['id']?>"class='button button--edit'>Редактировать</a>
+        		<a href="?action=delete&id=<?=$value['id']?>"class='button button--delete'>Удалить</a>
+        	</div>
+        </div>
         <div class="badge"><?=$value['genre']?></div>
         <div class="badge"><?=$value['year']?></div>
       </div>
@@ -101,9 +118,9 @@
         <div class="title-4 mt-0">Добавить фильм</div>
         <form action="index.php" method="POST">
         	
-        	<?php if ($addError != '') { echo $addError; } ?>
+        	<?php if (@$addError != '') { echo @$addError; } ?>
         	
-        	<?php if ($addSuccess != '') { echo $addSuccess; } ?>
+        	<?php if (@$addSuccess != '') { echo @$addSuccess; } ?>
 
         	<?php 
 

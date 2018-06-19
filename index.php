@@ -44,7 +44,7 @@
 		}
 	}
 
-	// GET FILMS FROM DB
+	// Get movie from db
 	$query = "SELECT * FROM films";
 	$films = array();
 

@@ -1,12 +1,10 @@
 <?php 
 
-	// CONNECT TO MYSQL DB
-	$link = mysqli_connect('localhost', 'root', '', 'filmoteka');
+require('config.php');
+require('database.php');
 
-	if (mysqli_connect_error()) {
-		die("Ошибка подключения к БД");
-	}
 
+$link = db_connect();
 	// SAVE FORM TO DB
 	
 	$addSuccess = "";

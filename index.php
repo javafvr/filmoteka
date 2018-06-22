@@ -2,6 +2,7 @@
 
 	// CONNECT TO MYSQL DB
 	$link = mysqli_connect('localhost', 'root', '', 'filmoteka');
+  
 
 	if (mysqli_connect_error()) {
 		die("Ошибка подключения к БД");

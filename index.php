@@ -6,15 +6,14 @@ $link = db_connect();
 
 
 require('models/films.php');
-$films = films_all($link);
 
 if (@$_GET['action'] == 'delete') {
-  // delete_film($link, $_GET['id']);
-
   if(delete_film($link, $_GET['id'])) {
     $addSuccess = '<div class="info">Фильм успешно удален.</div>';
   }
 }
+
+$films = films_all($link);
 
 include('views/head.tpl');
 include('views/index.tpl');

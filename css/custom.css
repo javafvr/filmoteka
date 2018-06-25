@@ -57,3 +57,17 @@ a.button--edit{
 .card__header>* {
 	margin-top: 0 !important;
 }
+
+.textarea{
+	height: 100px;
+}
+
+.file-upload__thumb{
+	position: relative;
+}
+
+.file-upload__thumb .button--delete{
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+}

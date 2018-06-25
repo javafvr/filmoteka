@@ -1,4 +1,5 @@
     </div><!-- build:jsLibs js/libs.js -->
+    <script src="../js/custom-file-input.js"></script>
     <script src="libs/jquery/jquery.min.js"></script><!-- endbuild -->
 <!-- build:jsVendor js/vendor.js -->
     <script src="libs/jquery-custom-scrollbar/jquery.custom-scrollbar.js"></script><!-- endbuild -->

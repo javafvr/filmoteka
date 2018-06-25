@@ -8,7 +8,7 @@ function db_connect(){
 	}
 
 	if(!mysqli_set_charset($link, 'utf8')){
-		printf("Error: " . mysqli_error($link));
+		print_f("Error: " . mysqli_error($link));
 	}
 
 	return $link;

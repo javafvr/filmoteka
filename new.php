@@ -1,10 +1,11 @@
 <?php 
-
 require('config.php');
 require('database.php');
 $link = db_connect();
 
 require('models/films.php');
+require('functions/login-functions.php');
+
 
 $inputErrors = array();
 

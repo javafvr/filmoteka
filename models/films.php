@@ -28,7 +28,7 @@ function get_film($link, $id){
 
 // Adding movie to db
 function film_new($link, $title, $genre, $year, $description){
-	print_r($_FILES);
+	// print_r($_FILES);
 	if (isset($_FILES['photo']['name']) && $_FILES['photo']['tmp_name'] != "") {
 		$photo = addPhoto();
 	}
